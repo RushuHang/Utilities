@@ -1,0 +1,18 @@
+/* v4: one import only */
+@import "tailwindcss";
+
+@theme {
+  --color-sctblue-200: #99c2ea;
+  --color-sctblue-300: #66a3df;
+  --color-sctblue-400: #3385d4;
+  --color-sctblue-500: #1968b3;
+  --color-sctblue-600: #0e5290;
+  --color-sctblue-700: #0a3c6d;
+
+  --color-danger-500: #dc2626;
+  --color-danger-600: #b91c1c;
+}
+
+body {
+  @apply bg-gray-100;
+}
