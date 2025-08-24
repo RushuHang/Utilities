@@ -36,6 +36,12 @@ export default function JsonFormatter() {
     }
   };
 
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(signature);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="p-4">
       <textarea
@@ -60,9 +66,22 @@ export default function JsonFormatter() {
       </div>
       {error && <p className="mt-3 text-red-600 ">{error}</p>}
       {showPreview && (
+        <div className="relative">
         <div className="mt-4 bg-white rounded shadow p-3 overflow-auto">
           <JSONPretty data={data ?? input} />
+          <button
+              type="button"
+              onClick={copyToClipboard}
+              className="absolute top-35 right-2 text-gray-500 hover:text-sky-600"
+              title="Copy to clipboard"
+            >
+              <ContentCopyIcon
+                fontSize="small"
+                sx={{ color: "var(--color-sctblue-600)" }}
+              />
+            </button>
         </div>
+        <div/>
       )}
     </div>
   );
